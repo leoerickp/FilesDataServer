@@ -1,0 +1,16 @@
+version: '3'
+services:
+  filesdataserver:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    container_name: FilesDataServer
+    restart: always
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      PORT: ${PORT}
+      URI_EXTERNAL_API_BASE: ${URI_EXTERNAL_API_BASE}
+      TOKEN_EXTERNAL_API: ${TOKEN_EXTERNAL_API}
